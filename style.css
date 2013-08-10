@@ -1,0 +1,7 @@
+body.setup { background: #eee; }
+body.setup #options { display: block; }
+body.setup #container { text-align: left; max-width: 800px; margin: auto; background: white; padding: 20px 40px; }
+
+#container { text-align: center; }
+
+#options { display: none; }

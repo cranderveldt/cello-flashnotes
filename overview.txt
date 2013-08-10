@@ -1,0 +1,35 @@
+start flashnotes
+
+front
+play sound
+show note names
+show fingerings
+show staff
+
+checkboxes on the front will randomly show one of the checked items
+
+back
+play sound
+note names
+fingerings
+staff
+
+checkboxes on the back will show ALL of the checked items
+
+set seconds before cardflip
+optional button for manually cardflip
+maybe keypress for flip too
+number of cards to show in a set
+optional choose set/deck
+
+
+db = [{
+    cello objecsts
+}]
+
+jquery will pull in one card randomly, show/play the event desired and wait a x amount of time, or wait for cardflip keypress
+
+challenges
+-audio file
+--dynamicly play audio on command
+--browser compatibility

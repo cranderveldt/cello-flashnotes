@@ -1,0 +1,21 @@
+body {
+    &.setup {
+        background: #eee;
+        #options {
+            display: block;
+        }
+        #container {
+            text-align: left;
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px 40px;
+        }
+    }
+}
+#container {
+    text-align: center;
+}
+#options {
+    display: none;
+}
