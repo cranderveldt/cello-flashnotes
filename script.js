@@ -11,9 +11,10 @@ jQuery(document).ready(function($){
             arr.splice(index, 1);
         }
         return arr[_.random(arr.length-1)];
+        console.log(cards);
     };
     var flipCard = function(card) {
-        var $back = $('#game .card .back');
+        var $back = $('#game .card .back').show().siblings().hide().end();
         $back.html('');
         for (var b in options.back) {
             $back.append(card[options.back[b]]);
@@ -24,15 +25,14 @@ jQuery(document).ready(function($){
                 showCard(randomCard(card));
             }, parseInt(options.timeout, 10) * 1000);
         }
-    }
+    };
     var showCard = function(card) {
         var clue = options.front[_.random(options.front.length-1)];
-        var $front = $('#game .card');
+        var $front = $('#game .card .front').show().siblings().hide().end();
         $front.html(card[clue]);
         setTimeout(function(){
             flipCard(card);
         }, parseInt(options.timeout, 10) * 1000);
-        return _.indexOf(cards, card);
     };
     $('#options').on('submit', function(e){
         e.preventDefault();
