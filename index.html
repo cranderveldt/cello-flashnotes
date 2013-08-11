@@ -66,35 +66,53 @@
                     </div>
                     <div class="checkbox">
                         <label for="opt-back-sound">
-                            <input type="checkbox" name="back" value="sound" id="opt-back-sound" checked="checked"> 
+                            <input type="checkbox" name="back" value="sound" id="opt-back-sound" checked="checked" data-default="checked"> 
                             Play sound
                         </label>
                     </div>
                     <p class="help-block">Checking multiple checkboxes will display all of the selected options on reveal.</p>
                     <h3>Gameplay Options</h3>
-                    <div class="checkbox">
-                        <label for="opt-manual-button">
-                            <input type="checkbox" name="manual" value="button" id="opt-manual-button"> 
-                            Use manual cardflip with button
+                    <label>How do you want the cards to advance?</label>
+                    <div class="radio">
+                        <label for="opt-control-auto">
+                            <input type="radio" name="control_type" id="opt-control-auto" class="control-type" value="automatic" checked="checked" data-default="checked">
+                            Set cardflipping to automatic
                         </label>
                     </div>
-                    <div class="checkbox">
-                        <label for="opt-manual-keypress">
-                            <input type="checkbox" name="manual" value="keypress" id="opt-manual-keypress"> 
-                            Use manual cardflip with keypress
+                    <div class="radio">
+                        <label for="opt-control-manual">
+                            <input type="radio" name="control_type" id="opt-control-manual" class="control-type" value="manual">
+                            Set cardflipping to manual
                         </label>
                     </div>
-                    <div class="form-group">
-                        <label for="opt-select-key">Which key do you want to flip the card?</label>
-                        <input type="text" class="form-control" id="opt-select-key" name="manual_key" placeholder="Which key to use?" data-default="">
+                    <div class="automatic-group">
+                        <div class="form-group">
+                            <label for="opt-cards-set">How many seconds before each card flips?</label>
+                            <input type="number" class="form-control" id="opt-cards-timeout" name="timeout" placeholder="How many seconds before each card flips?" value="5" data-default="5">
+                        </div>
+                        <div class="form-group">
+                            <label for="opt-cards-set">How many seconds between each card?</label>
+                            <input type="number" class="form-control" id="opt-cards-delay" name="delay" placeholder="How many seconds between each card?" value="5" data-default="5">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="opt-cards-set">How many cards should show in a set?</label>
-                        <input type="text" class="form-control" id="opt-cards-set" name="cards_set" placeholder="How many cards?" value="10" data-default="10">
-                    </div>
-                    <div class="form-group">
-                        <label for="opt-cards-set">How many seconds before each card flips?</label>
-                        <input type="text" class="form-control" id="opt-cards-timeout" name="timeout" placeholder="How many seconds before each card flips?" value="5" data-default="5">
+                    <div class="manual-group" style="display: none;">
+                        <label>How do you want to tell the cards to advance?</label>
+                        <div class="radio">
+                            <label for="opt-manual-button">
+                                <input type="radio" name="manual" value="button" id="opt-manual-button" checked="checked" data-default="checked"> 
+                                Use manual cardflip with button
+                            </label>
+                        </div>
+                         <div class="radio">
+                            <label for="opt-manual-keypress">
+                                <input type="radio" name="manual" value="keypress" id="opt-manual-keypress"> 
+                                Use manual cardflip with keypress
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="opt-select-key">Which key do you want to flip the card?</label>
+                            <input type="text" class="form-control" id="opt-select-key" name="manual_key" placeholder="Which key to use?" data-default="">
+                        </div>
                     </div>
                     <h3>Choose a deck</h3>
                     <div class="radio">
@@ -103,14 +121,22 @@
                             Basic Cello
                         </label>
                     </div>
-                    <button class="btn btn-primary">Start Flashnotes!</button>
-                    <button class="btn btn-default">Set options to defaults</button>
+                    <div class="form-group">
+                        <label for="opt-cards-set">How many cards should show in a set?</label>
+                        <input type="number" class="form-control" id="opt-cards-set" name="cards_set" placeholder="How many cards?" value="10" data-default="10">
+                    </div>
+                    <button class="btn btn-primary" type="submit">Start Flashnotes!</button>
+                    <button class="btn btn-default" type="button" id="defaults">Set options to defaults</button>
                 </fieldset>
             </form>
             <div id="game">
                 <div class="card">
                     <div class="front"></div>
                     <div class="back"></div>
+                </div>
+                <div class="controls" style="display: none;">
+                    <button type="button" id="flip-card" class="btn btn-primary">Flip</button>
+                    <button type="button" id="next-card" class="btn btn-primary">Next</button>
                 </div>
             </div>
         </div>
